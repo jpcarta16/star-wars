@@ -1,15 +1,25 @@
-<div class="container">
-    <h1>All Characters</h1>
-    <hr>
+<h1 class="text-align-center">All characters</h1>
+<hr>
+<div class="container d-flex flex-wrap justyfy-content-center gap-3">
 
-    {{#each users}}
-        <p>
-            <a href="/users/list/{{_id}}">{{username}}</a>
 
-        <p></p>
-        </p>
+    {{#each characters}}
+
+        <div class="card" style="width: 10rem;">
+            <img src="{{image}}" class="card-img-top" alt="Character-picture">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{species}}</p>
+
+            </div>
+
+            {{!-- <h4>{{name}}</h4> --}}
+            {{!-- <a href="/users/list/{{_id}}">{{characters.name}}</a> --}}
+
+
+        </div>
     {{/each}}
 
     <hr>
-    <a href="/" class="btn btn-dark">Volver a incio</a>
 </div>
+<a href="/" class="btn btn-dark">Volver a incio</a>
