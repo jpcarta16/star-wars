@@ -11,7 +11,7 @@ router.get("/list/character", (req, res, next) => {
         .getAllCharacters()
         .then(response => {
             res.render("usuarios/character-list-All", { characters: response.data })
-            console.log({ characters: response.data })
+            // console.log({ characters: response.data })
         })
         .catch(err => console.log(err))
 
