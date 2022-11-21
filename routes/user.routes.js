@@ -36,8 +36,12 @@ router.get("/users/list/:user_id", (req, res, next) => {
 
     User
         .findById(user_id)
-        .then(users => {
-            res.render('usuarios/user-details', users)
+        .then(user => {
+            res.render('usuarios/user-details', {
+                user,
+                isMaster: req.session.currentUser.role === 'Master',
+                isSolder: req.session.currentUser.role === 'solder',
+            })
         })
         .catch(err => (err))
 })
@@ -52,5 +56,31 @@ router.get("/list", (req, res) => {
         .catch(err => console.error(err))
 });
 
+// Edit character form (render)
+router.get("/editar/:id", (req, res, next) => {
 
+    const { id } = req.params
+
+    User
+        .findById(id)
+        .then(character => res.render('usuarios/edit-character', {
+            character,
+            isMaster: req.session.currentUser.role === 'Master',
+            isSolder: req.session.currentUser.role === 'solder',
+        }))
+        .catch(err => console.log(err))
+})
+
+
+// Edit character form (handle)
+router.post("/editar/:id", (req, res, next) => {
+
+    const { id: character_id } = req.params
+    const { name, type, role } = req.body
+
+    User
+        .findOne(character_id, { name, occupation, weapon })
+        .then(() => res.redirect('/usuarios/user-list'))
+        .catch(err => console.log(err))
+})
 module.exports = router

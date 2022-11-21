@@ -13,7 +13,7 @@ class ApiCharacters {
     }
 
     getOneCharacter = (characterId) => {
-        return this.axiosApp.get(`/id/${Id}.json`)
+        return this.axiosApp.get(`/id/${characterId}.json`)
     }
 }
 
