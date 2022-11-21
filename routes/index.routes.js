@@ -9,6 +9,7 @@ const router = express.Router()
 
 /* GET home page */
 router.get("/", (req, res, next) => {
+  console.log(req.app.locals.username)
   res.render("index");
 });
 

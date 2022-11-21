@@ -89,12 +89,17 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
                 return
             }
             req.session.currentUser = user //lg
+
+            req.app.locals.username = user.username
             res.redirect('/')
         })
         .catch(err => console.log(err))
 })
 router.get('/cerrar-sesion', (req, res) => {
-    req.session.destroy(() => res.redirect('/'))
+    req.session.destroy(() => {
+        req.app.locals.username = null
+        res.redirect('/')
+    })
 })
 
 
