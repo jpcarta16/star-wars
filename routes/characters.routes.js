@@ -16,5 +16,15 @@ router.get("/list/character", (req, res, next) => {
         .catch(err => console.log(err))
 
 })
+router.get("/character/details/:character_id", (req, res, next) => {
+
+    api
+
+        .getOneCharacter()
+        .then(response => {
+            res.render("usuarios/character-details", { characters: response.data })
+        })
+        .catch(err => console.log(err))
+})
 
 module.exports = router

@@ -89,13 +89,14 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
                 return
             }
             req.session.currentUser = user
-            res.redirect('users/list/:_id')
+            res.redirect('/')
         })
         .catch(err => console.log(err))
 })
 router.get('/cerrar-sesion', (req, res) => {
     req.session.destroy(() => res.redirect('/'))
 })
+
 
 
 module.exports = router
