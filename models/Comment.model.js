@@ -1,10 +1,15 @@
 const { Schema, model } = require("mongoose");
 
+const User = require("./User.model");
+
+const owner = mongoose.model('User', userSchema)
+
 const commentSchema = new Schema(
   {
-    username: {
-      type: String,
-      required: true
+    owner: {
+      type: mongoose.Types.ObjectId,
+      ref: "User"
+
     },
     title: {
       type: String,
