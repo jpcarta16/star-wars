@@ -58,7 +58,7 @@ router.get('/crear', isLoggedOut, (req, res) => {
 })
 router.post('/crear', isLoggedOut, (req, res) => {
 
-    const { username, password } = req.body
+    const { username, password, type } = req.body
 
     bcryptjs
         .genSalt(saltRounds)
@@ -66,9 +66,9 @@ router.post('/crear', isLoggedOut, (req, res) => {
             return bcryptjs.hash(password, salt)
         })
         .then(hashedPassword => {
-            return User.create({ username, password: hashedPassword })
+            return User.create({ type, username, password: hashedPassword })
         })
-        .then(() => res.redirect('/login'))
+        .then(() => res.redirect('/iniciar-sesion'))
         .catch(err => console.log(err))
 })
 router.get('/iniciar-sesion', isLoggedOut, (req, res) => { res.render('auth/login') })
@@ -89,7 +89,7 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
                 return
             }
             req.session.currentUser = user //lg
-            res.redirect('users/list/:_id')
+            res.redirect('/')
         })
         .catch(err => console.log(err))
 })

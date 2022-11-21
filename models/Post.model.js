@@ -1,9 +1,10 @@
 const { Schema, model, default: mongoose } = require("mongoose");
 const User = require("./User.model");
 
-const owner = mongoose.model('User', userSchema)
+const owner = User
 
-// User.findOne({})
+
+
 
 const postSchema = new Schema(
   {

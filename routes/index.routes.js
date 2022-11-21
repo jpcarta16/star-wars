@@ -1,5 +1,7 @@
 const express = require('express');
 const { isLoggedIn } = require('../middleware/route');
+const Post = require('../models/Post.model');
+const post = new Post();
 const router = express.Router()
 // const characterRoute =require("./../services")
 
@@ -30,7 +32,7 @@ router.get("/post/create", isLoggedIn, (req, res, next) => {
 router.post("/post/create", isLoggedIn, (req, res, next) => {
   const { owner, title, post } = req.body
 
-  Celebrity
+  Post
     .create({ owner, title, post })
     .then(() => {
       res.redirect('/post')
@@ -38,7 +40,11 @@ router.post("/post/create", isLoggedIn, (req, res, next) => {
     .catch(err => console.log(err))
 })
 router.get("/post", isLoggedIn, (req, res, next) => {
-  res.render("post");
+
+  Post
+    .findOne()
+    .then(post => res.render('post', { post }))
+    .catch(err => console.log(err))
 })
 
 
