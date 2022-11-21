@@ -1,15 +1,15 @@
 const { Schema, model, default: mongoose } = require("mongoose");
 const User = require("./User.model");
 
-// const owner = mongoose.model('User', userSchema)
+const owner = mongoose.model('User', userSchema)
 
 // User.findOne({})
 
 const postSchema = new Schema(
   {
     owner: {
-      type: mongoose.Types.O,
-      required: true
+      type: mongoose.Types.ObjectId,
+      ref: 'User'
     },
     title: {
       type: String,

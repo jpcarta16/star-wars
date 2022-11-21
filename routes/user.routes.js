@@ -5,13 +5,14 @@ const api = new charactersApi()
 
 const User = require('./../models/User.model')
 const { isLoggedOut } = require('./../middleware/route')
+const { isLoggedIn } = require('./../middleware/route')
 
 const bcryptjs = require('bcryptjs');
 const { application } = require('express');
 
 const saltRounds = 10
 
-router.get("/list", (req, res, next) => {
+router.get("/list", isLo (req, res, next) => {
     User
         .find()
         .then(users => {

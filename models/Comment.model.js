@@ -2,9 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const commentSchema = new Schema(
   {
-    username: {
-      type: String,
-      required: true
+    uowner: {
+      type: mongoose.Types.ObjectId,
+      ref: 'User'
+
     },
     title: {
       type: String,
