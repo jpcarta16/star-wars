@@ -13,9 +13,17 @@ function isLoggedOut(req, res, next) {
         res.redirect('/')
     }
 }
+const checkRoles = (...rolesToCheck) => (req, res, next) => {
+    if (rolesToCheck.includes(req.session.currentUser.role)) {
+        next()
+    } else {
+        res.render('auth/login', { errorMessage: `No tienes permisos de ${rolesToCheck}` })
+    }
+}
 
 
 module.exports = {
     isLoggedIn,
-    isLoggedOut
+    isLoggedOut,
+    checkRoles,
 }

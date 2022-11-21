@@ -88,8 +88,8 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
                 res.render('auth/login', { errorMessage: 'An error ocurred' })
                 return
             }
-            req.session.currentUser = user
-            res.redirect('/')
+            req.session.currentUser = user //lg
+            res.redirect('users/list/:_id')
         })
         .catch(err => console.log(err))
 })
