@@ -57,6 +57,7 @@ router.get('/crear', isLoggedOut, (req, res) => {
     res.render('auth/signup')
 })
 router.post('/crear', isLoggedOut, (req, res) => {
+    console.log(req.body)
 
     const { username, password, type } = req.body
 

@@ -15,7 +15,7 @@ router.get("/list", isLoggedIn, (req, res, next) => {
     User
         .find()
         .then(users => {
-            res.render('usuarios/user-list', { users })
+            res.render('users/user-list', { users })
         })
         .catch(err => (err))
 })
@@ -24,7 +24,7 @@ router.get("/list", (req, res, next) => {
     User
         .find()
         .then(users => {
-            res.render('usuarios/character-list-All', { users })
+            res.render('users/character-list-All', { users })
         })
         .catch(err => (err))
 })
@@ -37,7 +37,7 @@ router.get("/users/list/:user_id", (req, res, next) => {
     User
         .findById(user_id)
         .then(user => {
-            res.render('usuarios/user-details', {
+            res.render('users/user-details', {
                 user,
                 isMaster: req.session.currentUser.role === 'Master',
                 isSolder: req.session.currentUser.role === 'solder',
@@ -51,7 +51,7 @@ router.get("/list", (req, res) => {
     api
         .getAllCharacters()
         .then(users => {
-            res.render("usuarios/user-list", { users })
+            res.render("users/user-list", { users })
         })
         .catch(err => console.error(err))
 });
@@ -63,7 +63,7 @@ router.get("/editar/:id", (req, res, next) => {
 
     User
         .findById(id)
-        .then(character => res.render('usuarios/edit-character', {
+        .then(character => res.render('users/edit-character', {
             character,
             isMaster: req.session.currentUser.role === 'Master',
             isSolder: req.session.currentUser.role === 'solder',
@@ -80,7 +80,7 @@ router.post("/editar/:id", (req, res, next) => {
 
     User
         .findOne(character_id, { name, occupation, weapon })
-        .then(() => res.redirect('/usuarios/user-list'))
+        .then(() => res.redirect('/users/user-list'))
         .catch(err => console.log(err))
 })
 module.exports = router
