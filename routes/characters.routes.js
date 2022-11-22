@@ -7,7 +7,7 @@ router.get("/list/character", (req, res, next) => {
     api
         .getAllCharacters()
         .then(response => {
-            res.render("usuarios/character-list-All", { characters: response.data })
+            res.render("users/character-list-All", { characters: response.data })
 
         })
         .catch(err => console.log(err))
@@ -20,7 +20,7 @@ router.get("/list/character/details/:character_id", (req, res, next) => {
 
         .getOneCharacter(character_id)
         .then(response => {
-            res.render("usuarios/character-details", { characters: response.data })
+            res.render("users/character-details", { characters: response.data })
         })
         .catch(err => console.log(err))
 })
