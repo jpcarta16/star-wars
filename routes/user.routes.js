@@ -10,6 +10,9 @@ const User = require('./../models/User.model')
 
 const { isLoggedIn } = require('./../middleware/route')
 
+router.get("/mi-perfil", isLoggedIn, (req, res, next) => {
+    res.render("usuarios/user-details", { user: req.session.currentUser })
+})
 
 router.get("/list", isLoggedIn, (req, res, next) => {
     User
