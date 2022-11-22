@@ -4,8 +4,6 @@ const User = require("./User.model");
 const owner = User
 
 
-
-
 const postSchema = new Schema(
   {
     owner: {
