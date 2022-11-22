@@ -1,11 +1,17 @@
-<h1 class="fw-bold text-center">Your Space for Star Wars🚀</h1>
+<h1 id="index-title" class="fw-bold text-center">Your Space for Star Wars🚀</h1>
 <hr>
-<p class=" text-center"> Welcome Ironhacker!</p>
+<p id="index-p" class=" text-center"> Welcome Ironhacker!</p>
 
-
-
-<div class="d-grid gap-5 d-md-2 justify-content-md-center">
-    {{!-- <button class="btn " type="button" href="crear">Crear Usuario</button> --}}
-    <a href="/crear" class="btn btn-outline-secondary me-md-2" role="button" data-bs-toggle="button">Crear Usuario</a>
-    <button class="btn btn-outline-success" type="button">Button</button>
-</div>
+<video autoplay muted loop id="myVideo">
+    <source src="/videos/Star_Wars.mp4" type="video/mp4">
+</video>
+{{#unless username}}
+    <div class="d-grid gap-5 d-md-2 justify-content-md-center">
+        {{!-- <button class="btn " type="button" href="crear">Crear Usuario</button> --}}
+        <a href="/crear" class="btn btn-outline-secondary me-md-2" role="button" data-bs-toggle="button">Crear
+            Usuario</a>
+        <a href="/crear" class="btn btn-outline-success me-md-2" role="button" data-bs-toggle="button">Iniciar
+            Sesion</a>
+        {{!-- <button class="btn " type="button"></button> --}}
+    </div>
+{{/unless}}
