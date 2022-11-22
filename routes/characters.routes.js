@@ -13,11 +13,12 @@ router.get("/list/character", (req, res, next) => {
         .catch(err => console.log(err))
 
 })
-router.get("/character/details/:character_id", (req, res, next) => {
-
+router.get("/list/character/details/:character_id", (req, res, next) => {
+    // res.send('detalles de personaje')
+    const { character_id } = req.params
     api
 
-        .getOneCharacter()
+        .getOneCharacter(character_id)
         .then(response => {
             res.render("usuarios/character-details", { characters: response.data })
         })
