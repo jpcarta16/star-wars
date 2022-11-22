@@ -30,8 +30,9 @@ router.get("/mi-perfil", isLoggedIn, (req, res, next) => {
 router.get("/post/create", isLoggedIn, (req, res, next) => {
   res.render("new-post")
 })
-router.post("/post/create/:user_id", isLoggedIn, (req, res, next) => {
+router.post("/post/create", isLoggedIn, (req, res, next) => {
   const { owner, title, post } = req.body
+  const { user_id } = re.params
 
   Post
     .create({ owner, title, post })

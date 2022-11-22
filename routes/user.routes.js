@@ -56,7 +56,7 @@ router.get("/list", (req, res) => {
         .catch(err => console.error(err))
 });
 
-// Edit character form (render)
+
 router.get("/editar/:id", (req, res, next) => {
 
     const { id } = req.params
@@ -72,7 +72,7 @@ router.get("/editar/:id", (req, res, next) => {
 })
 
 
-// Edit character form (handle)
+
 router.post("/editar/:id", (req, res, next) => {
 
     const { id: character_id } = req.params
