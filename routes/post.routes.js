@@ -19,6 +19,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 
   Post
     .create({ owner, title, post })
+    .populate('owner')
     .then(() => {
       res.redirect('/post')
     })
@@ -29,7 +30,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 router.get("/", isLoggedIn, (req, res, next) => {
 
   Post
-    .find()
+    .findOne()
     .then(post => res.render('post', { post }))
     .catch(err => console.log(err))
 })
