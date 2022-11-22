@@ -1,32 +1,17 @@
 const express = require('express');
 const { isLoggedIn } = require('../middleware/route');
 const Post = require('../models/Post.model');
-const post = new Post();
 const router = express.Router()
-// const characterRoute =require("./../services")
 
 
-
-/* GET home page */
 router.get("/", (req, res, next) => {
-  console.log(req.app.locals.username)
   res.render("index");
 });
 
 
-
-
-// router.get("./api.routes" ,(req, res)=> {
-//   res.render("usuarios/character-list-All")
+// router.get("/mi-perfil", isLoggedIn, (req, res, next) => {
+//   res.render("usuarios/user-details", { user: req.session.currentUser })
 // })
-
-// router.get("/personajes", charactersRouter)
-
-
-
-router.get("/mi-perfil", isLoggedIn, (req, res, next) => {
-  res.render("usuarios/user-details", { user: req.session.currentUser })
-})
 router.get("/post/create", isLoggedIn, (req, res, next) => {
   res.render("new-post")
 })
@@ -48,8 +33,5 @@ router.get("/post", isLoggedIn, (req, res, next) => {
     .then(post => res.render('post', { post }))
     .catch(err => console.log(err))
 })
-
-
-
 
 module.exports = router;

@@ -9,7 +9,9 @@ const { isLoggedIn } = require('./../middleware/route')
 const bcryptjs = require('bcryptjs');
 const { application } = require('express');
 
-const saltRounds = 10
+router.get("/mi-perfil", isLoggedIn, (req, res, next) => {
+    res.render("usuarios/user-details", { user: req.session.currentUser })
+})
 
 router.get("/list", isLoggedIn, (req, res, next) => {
     User
