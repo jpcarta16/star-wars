@@ -28,6 +28,9 @@ app.use("/", userRoutes)
 const characterRoutes = require("./routes/characters.routes")
 app.use("/", characterRoutes)
 
+const postRoutes = require("./routes/post.routes")
+app.use("/", postRoutes)
+
 
 require("./error-handling")(app);
 

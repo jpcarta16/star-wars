@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const User = require("./User.model");
 
-const owner = mongoose.model('User', userSchema)
+const owner = User
 
 const commentSchema = new Schema(
   {

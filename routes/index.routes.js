@@ -30,11 +30,12 @@ router.get("/mi-perfil", isLoggedIn, (req, res, next) => {
 router.get("/post/create", isLoggedIn, (req, res, next) => {
   res.render("new-post")
 })
-router.post("/post/create", isLoggedIn, (req, res, next) => {
+router.post("/post/create/:user_id", isLoggedIn, (req, res, next) => {
   const { owner, title, post } = req.body
 
   Post
     .create({ owner, title, post })
+    .populate('owner')
     .then(() => {
       res.redirect('/post')
     })
