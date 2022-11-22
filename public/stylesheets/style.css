@@ -9,3 +9,23 @@ a {
 h1 {
   color: 15px;
 }
+
+#myVideo {
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+
+}
+
+#index-title {
+  color: #FFE81F;
+  font-family: 'Franklin Gothic Medium';
+}
+
+#index-p {
+  color: #FFE81F;
+  font-family: 'Franklin Gothic Medium';
+}
