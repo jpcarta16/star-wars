@@ -13,14 +13,16 @@ const { on } = require('connect-mongo')
 const saltRounds = 10
 
 
+
 router.get('/crear', isLoggedOut, (req, res) => {
     res.render('auth/signup')
 })
 
+
 router.post('/crear', isLoggedOut, (req, res) => {
 
     const { username, password, Jedi, Sith } = req.body
-    console.log({ Jedi, Sith })
+
     let type
     if (Sith) {
         type = "Sith"
@@ -39,6 +41,7 @@ router.post('/crear', isLoggedOut, (req, res) => {
         .then(() => res.redirect('/iniciar-sesion'))
         .catch(err => console.log(err))
 })
+
 
 router.get('/iniciar-sesion', isLoggedOut, (req, res) => { res.render('auth/login') })
 
@@ -62,18 +65,22 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
             req.session.currentUser = user
 
             req.app.locals.username = user.username
+
             res.redirect('/')
         })
         .catch(err => console.log(err))
 })
 
+
 router.get('/cerrar-sesion', (req, res) => {
+
     req.session.destroy(() => {
+
         req.app.locals.username = null
+
         res.redirect('/')
     })
 })
-
 
 
 module.exports = router

@@ -25,7 +25,27 @@ h1 {
   font-family: 'Franklin Gothic Medium';
 }
 
+#listcharacter {
+  color: #FFE81F;
+  font-family: 'Franklin Gothic Medium';
+}
+
 #index-p {
   color: #FFE81F;
   font-family: 'Franklin Gothic Medium';
+}
+
+
+#estrella {
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+
+}
+
+.card-img-top {
+  height: 45%
 }

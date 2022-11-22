@@ -1,14 +1,18 @@
 <h1>Post de Usuarios</h1>
 <hr>
-
+<div class="d-grid gap-2">
+    <button class="btn btn-warning m-2" type="button"><a href="post/create">Crea un nuevo post</a></button>
+</div>
+<hr>
 <div class="container">
     <div class="row">
         <div class="col-mb-6">
 
             {{#each post}}
-            <h3>{{owner}}</h3>
+            <h3>{{owner.username}}</h3>
             <h5>{{title}}</h5>
             <p>{{post}}</p>
+            <a href="post/details/{{id}}" class="btn btn-warning" tabindex="-1" role="button">Detalles</a>
             <hr>
             {{/each}}
 

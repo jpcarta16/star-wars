@@ -3,10 +3,10 @@
 <div class="col-md-4 mb-3">
     <div class="card">
         <div class="card-body">
+
             <h3 class="card-title">Bienvenido {{user.username}}</h3>
             <p class="card-text text-capitalize"> Rango: {{user.role}}</p>
             <p class="card-text text-capitalize"> Team:{{user.type}}</p>
-
 
             {{#if isMaster}}
             <a href="/editar/{{user._id}}" class="btn btn-warning">Editar Personaje</a>
@@ -14,7 +14,9 @@
                 <input type="submit" value="Eliminar Personaje" class="btn btn-danger">
             </form>
             {{/if}}
+
         </div>
+
     </div>
 </div>
 </div>

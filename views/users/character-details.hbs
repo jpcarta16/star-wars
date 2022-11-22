@@ -1,25 +1,35 @@
 <div class="container d-flex flex-wrap justyfy-content-center gap-3">
-    <div class="card" style="width: 30rem;">
-        <img src="{{characters.image}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{characters.name}}</h5>
-            <p class="card-text">{{characters.species}}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Piel: {{characters.skinColor}}</li>
-            <li class="list-group-item">Ojos: {{characters.eyeColor}}</li>
-            <li class="list-group-item">Planeta: {{characters.homeworld}}</li>
-            <li class="list-group-item">Altura: {{characters.height}}m</li>
-            <li class="list-group-item">Peso: {{characters.mass}}kg</li>
-            <li class="list-group-item"> {{characters.affiliations}}</li>
-            {{!-- {{#each characters}} --}}
-            {{!-- <ul>
-                <li>{{characters.affiliations}}</li>
-            </ul> --}}
-            {{!-- {{/each}} --}}
-        </ul>
-        <div class="card-body">
-            <a href="{{characters.wiki}}" class="card-link">Wiki</a>
+
+    <div class="card mb-3 mt-5" style="max-width: 900px;">
+
+        <div class="row g-0">
+
+            <div class="col-md-4">
+
+                <img src="{{characters.image}}" class="img-fluid rounded-start" alt="...">
+
+            </div>
+            <div class="col-md-8">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">{{characters.name}}</h5>
+
+                    <p class="card-text"><small class="text-muted"></small>Especie: {{characters.species}}</p>
+                    <hr>
+                    <p class="card-text"><small class="text-muted"></small>Color: {{characters.skinColor}}</p>
+                    <hr>
+                    <p class="card-text"><small class="text-muted"></small>Ojos: {{characters.eyeColor}}</p>
+                    <hr>
+                    <p class="card-text"><small class="text-muted"></small>Altura: {{characters.height}}m</p>
+                    <hr>
+                    <p class="card-text"><small class="text-muted"></small>Peso: {{characters.mass}}kg</p>
+                    <hr>
+                    <p class="card-text"> Aliados:</p>
+                    <p>{{characters.affiliations}}</p>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -5,6 +5,7 @@ const User = require("./User.model");
 const owner = User
 
 const commentSchema = new Schema(
+
   {
     owner: {
       type: mongoose.Types.ObjectId,
@@ -24,6 +25,7 @@ const commentSchema = new Schema(
     timestamps: true
   }
 );
+
 
 const Comment = model("Comment", commentSchema);
 

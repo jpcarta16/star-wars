@@ -2,10 +2,8 @@ const { Schema, model, default: mongoose } = require("mongoose");
 
 const User = require("./User.model");
 
-const owner = User
-
-
 const postSchema = new Schema(
+
   {
     owner: {
       type: mongoose.Types.ObjectId,
@@ -26,6 +24,7 @@ const postSchema = new Schema(
     timestamps: true
   }
 );
+
 
 const Post = model("Post", postSchema);
 

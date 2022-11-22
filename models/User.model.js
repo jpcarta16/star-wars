@@ -1,10 +1,11 @@
 const { Schema, model } = require("mongoose");
+
 const userSchema = new Schema(
+
   {
     username: {
       type: String,
     },
-
 
     type: {
       type: String,
@@ -27,6 +28,7 @@ const userSchema = new Schema(
     timestamps: true
   }
 );
+
 
 const User = model("User", userSchema);
 

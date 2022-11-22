@@ -1,15 +1,15 @@
 <div class="container">
-    <h1>Nosotr@s</h1>
+    <h1 id="listcharacter">Nosotr@s</h1>
     <hr>
-    <img src="./../../public/images/Esstrella_de_la_muerte.jpg" alt="estrella">
+    <img src="/images/Esstrella_de_la_muerte.jpg" id="estrella" alt="estrella">
 
     {{#each users}}
-        <p>
-            <a href="/users/list/{{_id}}">{{username}}</a>
-        </p>
+
+    <a href="/user/list-user/{{_id}}">{{username}}</a>
+
     {{/each}}
 
     <hr>
 
-    <a href="/" class="btn btn-dark">Volver a incio</a>
+    <a href="/" class="btn btn-warning">Volver a incio</a>
 </div>

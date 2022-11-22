@@ -7,8 +7,9 @@ const Post = require('../models/Post.model');
 const router = express.Router()
 
 
+
 router.get("/create", isLoggedIn, (req, res, next) => {
-  res.render("new-post")
+  res.render("post/new-post")
 })
 
 
@@ -19,7 +20,6 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 
   Post
     .create({ owner, title, post })
-    .populate('owner')
     .then(() => {
       res.redirect('/post')
     })
@@ -29,9 +29,27 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 
 router.get("/", isLoggedIn, (req, res, next) => {
 
+  const owner = req.session.currentUser._id
+
   Post
-    .findOne()
-    .then(post => res.render('post', { post }))
+    .find()
+    .populate('owner')
+    .then(post => res.render('post/post', { post }))
+    .catch(err => console.log(err))
+})
+
+
+router.get("/details/:post_id", (req, res, next) => {
+
+  const { post_id } = req.params
+  const owner = req.session.currentUser._id
+
+  Post
+    .findById(post_id)
+    .populate('owner')
+    .then(post => {
+      res.render("post/post-details", { post })
+    })
     .catch(err => console.log(err))
 })
 

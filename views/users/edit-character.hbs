@@ -5,7 +5,9 @@
 
             <h1>Editar {{character.name}}</h1>
             <hr>
+
             <form action="/personajes/{{character.id}}/editar" method="POST">
+
                 <div class="row">
                     <div class="col">
                         <div class="mb-3">
@@ -13,6 +15,7 @@
                             <input type="text" class="form-control" id="name" name="name" value="{{character.name}}">
                         </div>
                     </div>
+
                     <div class="col">
                         <div class="mb-3">
                             <label for="weapon" class="form-label">Arma</label>
@@ -20,6 +23,7 @@
                                 value="{{character.weapon}}">
                         </div>
                     </div>
+
                 </div>
 
                 <div class="mb-3">
@@ -31,6 +35,7 @@
                 <div class="d-grid mt-5">
                     <button type="submit" class="btn btn-dark btn-lg">Guardar edición</button>
                 </div>
+
             </form>
         </div>
     </div>

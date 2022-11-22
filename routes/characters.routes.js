@@ -7,7 +7,8 @@ const ApiCharacters = require('./../services/character-api-services')
 const api = new ApiCharacters()
 
 
-router.get("/list", (req, res, next) => {
+
+router.get("/list-characters", (req, res, next) => {
 
     api
         .getAllCharacters()
@@ -16,6 +17,7 @@ router.get("/list", (req, res, next) => {
         })
         .catch(err => console.log(err))
 })
+
 
 router.get("/list/details/:character_id", (req, res, next) => {
 
