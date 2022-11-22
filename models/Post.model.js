@@ -1,4 +1,5 @@
 const { Schema, model, default: mongoose } = require("mongoose");
+
 const User = require("./User.model");
 
 const owner = User
@@ -10,10 +11,12 @@ const postSchema = new Schema(
       type: mongoose.Types.ObjectId,
       ref: "User"
     },
+
     title: {
       type: String,
       required: true
     },
+
     post: {
       type: String,
       required: true

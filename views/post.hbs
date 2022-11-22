@@ -1,13 +1,19 @@
 <h1>Post de Usuarios</h1>
 <hr>
-<p> texto texto texto</p>
-<div class="container d-flex flex-wrap justyfy-content-center">
-    {{#each Post}}
-    <h3>{{owner}}</h3>
-    <h5>{{title}}</h5>
-    <p>{{post}}</p>
-    {{/each}}
 
-    <a href="post/create" class="btn btn-secondary" tabindex="-1" role="button">Crea un post</a>
+<div class="container">
+    <div class="row">
+        <div class="col-mb-6">
 
+            {{#each post}}
+            <h3>{{owner}}</h3>
+            <h5>{{title}}</h5>
+            <p>{{post}}</p>
+            <hr>
+            {{/each}}
+
+            <a href="post/create" class="btn btn-secondary" tabindex="-1" role="button">Crea un post</a>
+
+        </div>
+    </div>
 </div>

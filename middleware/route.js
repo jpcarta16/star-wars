@@ -1,4 +1,5 @@
 function isLoggedIn(req, res, next) {
+
     if (req.session.currentUser) {
         next()
     } else {
@@ -7,6 +8,7 @@ function isLoggedIn(req, res, next) {
 }
 
 function isLoggedOut(req, res, next) {
+
     if (!req.session.currentUser) {
         next()
     } else {
@@ -14,6 +16,7 @@ function isLoggedOut(req, res, next) {
     }
 }
 const checkRoles = (...rolesToCheck) => (req, res, next) => {
+
     if (rolesToCheck.includes(req.session.currentUser.role)) {
         next()
     } else {

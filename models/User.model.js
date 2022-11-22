@@ -4,20 +4,25 @@ const userSchema = new Schema(
     username: {
       type: String,
     },
+
+
     type: {
       type: String,
       enum: ['Jedi', 'Sith']
     },
+
     role: {
       type: String,
       enum: ['Soldier', 'Master'],
       default: 'Soldier'
     },
+
     password: {
       type: String,
       required: true
     },
   },
+
   {
     timestamps: true
   }

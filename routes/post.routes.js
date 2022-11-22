@@ -1,11 +1,21 @@
 const express = require('express');
+
 const { isLoggedIn } = require('../middleware/route');
+
 const Post = require('../models/Post.model');
+
 const router = express.Router()
 
-router.post("/post/create", isLoggedIn, (req, res, next) => {
-  const { owner, title, post } = req.body
 
+router.get("/create", isLoggedIn, (req, res, next) => {
+  res.render("new-post")
+})
+
+
+router.post("/create", isLoggedIn, (req, res, next) => {
+
+  const { title, post } = req.body
+  const owner = req.session.currentUser._id
 
   Post
     .create({ owner, title, post })
@@ -14,7 +24,9 @@ router.post("/post/create", isLoggedIn, (req, res, next) => {
     })
     .catch(err => console.log(err))
 })
-router.get("/post", isLoggedIn, (req, res, next) => {
+
+
+router.get("/", isLoggedIn, (req, res, next) => {
 
   Post
     .find()
@@ -23,6 +35,4 @@ router.get("/post", isLoggedIn, (req, res, next) => {
 })
 
 
-
-
-module.exports = router;
+module.exports = router
