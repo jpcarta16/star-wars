@@ -8,10 +8,7 @@ const { isLoggedOut } = require('./../middleware/route')
 
 const bcryptjs = require('bcryptjs');
 
-const { on } = require('connect-mongo')
-
 const saltRounds = 10
-
 
 
 router.get('/crear', isLoggedOut, (req, res) => {
@@ -20,15 +17,11 @@ router.get('/crear', isLoggedOut, (req, res) => {
 
 
 router.post('/crear', isLoggedOut, (req, res) => {
+    console.log(req.body)
+    const { username, password, type } = req.body
 
-    const { username, password, Jedi, Sith } = req.body
+    // const type = Sith ? "Sith" : "Jedi"
 
-    let type
-    if (Sith) {
-        type = "Sith"
-    } else {
-        type = "Jedi"
-    }
 
     bcryptjs
         .genSalt(saltRounds)
@@ -66,6 +59,8 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
 
             req.app.locals.username = user.username
 
+            req.app.locals.type = user.type
+
             res.redirect('/')
         })
         .catch(err => console.log(err))
@@ -77,6 +72,8 @@ router.get('/cerrar-sesion', (req, res) => {
     req.session.destroy(() => {
 
         req.app.locals.username = null
+
+        req.app.locals.type = null
 
         res.redirect('/')
     })

@@ -1,22 +1,22 @@
-<h1>Crear Post</h1>
+<h1>Crear Comentario</h1>
 <hr>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <hr>
 
-            <form action="/post/crear" method="POST">
+            <form action="/post/detalles/{{id}}" method="POST">
                 <div class="mb-3">
                     <label for="title" class="form-label">Título</label>
                     <input type="title" class="form-control" id="title" name="title">
                 </div>
 
                 <div class="mb-3">
-                    <label for="post" class="form-label">post</label>
-                    <input type="post" class="form-control" id="post" name="post">
+                    <label for="comment" class="form-label">Comentario</label>
+                    <input type="comment" class="form-control" id="comment" name="comment">
                 </div>
 
-                <button type="submit" class="btn btn-dark">Upload post</button>
+                <button type="submit" class="btn btn-dark">Upload comment</button>
 
             </form>
 

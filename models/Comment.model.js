@@ -1,8 +1,7 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, default: mongoose } = require("mongoose");
 
 const User = require("./User.model");
 
-const owner = User
 
 const commentSchema = new Schema(
 

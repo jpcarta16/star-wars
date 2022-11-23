@@ -13,9 +13,9 @@ router.get("/mi-perfil", isLoggedIn, (req, res, next) => {
 })
 
 
-router.get("/list-user", isLoggedIn, (req, res, next) => {
+router.get("/lista-usuarios", isLoggedIn, (req, res, next) => {
     User
-        .find()
+        .find({ type: req.session.currentUser.type })
         .then(users => {
             res.render('users/user-list', { users })
         })
@@ -23,17 +23,17 @@ router.get("/list-user", isLoggedIn, (req, res, next) => {
 })
 
 
-router.get("/list-user", (req, res, next) => {
+router.get("/lista-usuarios", (req, res, next) => {
     User
         .find()
         .then(users => {
             res.render('users/character-list-All', { users })
         })
-        .catch(err => (err))
+        .catch(err => console.log(err))
 })
 
 
-router.get("/list-user/:user_id", (req, res, next) => {
+router.get("/lista-usuarios/:user_id", (req, res, next) => {
 
     const { user_id } = req.params
 
@@ -46,7 +46,7 @@ router.get("/list-user/:user_id", (req, res, next) => {
                 isSoldier: req.session.currentUser.role === 'soldier',
             })
         })
-        .catch(err => (err))
+        .catch(err => console.log(err))
 })
 
 
@@ -61,19 +61,19 @@ router.get("/editar/:id", (req, res, next) => {
             isMaster: req.session.currentUser.role === 'Master',
             isSoldier: req.session.currentUser.role === 'soldier',
         }))
-        .catch(err => (err))
+        .catch(err => console.log(err))
 })
 
 
 router.post("/editar/:id", (req, res, next) => {
 
-    const { id: character_id } = req.params
+    const { id: user_id } = req.params
     const { name } = req.body
 
     User
-        .findOne(character_id, { name, occupation, weapon })
+        .findOne(user_id, { name, type })
         .then(() => res.redirect('/users/user-list'))
-        .catch(err => (err))
+        .catch(err => console.log(err))
 })
 
 

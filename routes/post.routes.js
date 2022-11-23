@@ -8,15 +8,15 @@ const router = express.Router()
 
 
 
-router.get("/create", isLoggedIn, (req, res, next) => {
+router.get("/crear", isLoggedIn, (req, res, next) => {
   res.render("post/new-post")
 })
 
 
-router.post("/create", isLoggedIn, (req, res, next) => {
+router.post("/crear", isLoggedIn, (req, res, next) => {
 
   const { title, post } = req.body
-  const owner = req.session.currentUser._id
+  const { _id: owner } = req.session.currentUser
 
   Post
     .create({ owner, title, post })
@@ -29,28 +29,28 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 
 router.get("/", isLoggedIn, (req, res, next) => {
 
-  const owner = req.session.currentUser._id
-
   Post
     .find()
     .populate('owner')
-    .then(post => res.render('post/post', { post }))
+    .then(post => {
+      res.render('post/post', { post })
+    })
     .catch(err => console.log(err))
 })
 
 
-router.get("/details/:post_id", (req, res, next) => {
+router.get("/detalles/:post_id", (req, res, next) => {
 
   const { post_id } = req.params
-  const owner = req.session.currentUser._id
 
   Post
     .findById(post_id)
-    .populate('owner')
+    .populate('owner comments')
     .then(post => {
       res.render("post/post-details", { post })
     })
     .catch(err => console.log(err))
+
 })
 
 

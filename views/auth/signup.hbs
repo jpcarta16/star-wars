@@ -6,27 +6,27 @@
 
         <div class="col-md-6">
 
-            <h1>Get an account</h1>
+            <h1>Regístrate</h1>
             <hr>
             <form action="/crear" method="POST">
 
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
+                    <label for="username" class="form-label">Nombre de Usuario</label>
                     <input type="text" class="form-control" id="username" name="username">
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
 
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="type">
                     <option selected>Select One</option>
-                    <option value="1" name="Sith">Jedi</option>
-                    <option value="2" name="Jedi">Sith</option>
+                    <option value="Jedi" name="Jedi">Jedi</option>
+                    <option value="Sith" name="Sith">Sith</option>
                 </select>
 
-                <button type="submit" class="btn btn-dark mt-4">Register</button>
+                <button type="submit" class="btn btn-dark mt-4">Registrar</button>
             </form>
         </div>
     </div>

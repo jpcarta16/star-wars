@@ -1,7 +1,7 @@
 <h1>Post de Usuarios</h1>
 <hr>
 <div class="d-grid gap-2">
-    <button class="btn btn-warning m-2" type="button"><a href="post/create">Crea un nuevo post</a></button>
+    <button class="btn btn-warning m-2" type="button"><a href="/post/crear">Crea un nuevo post</a></button>
 </div>
 <hr>
 <div class="container">
@@ -12,11 +12,9 @@
             <h3>{{owner.username}}</h3>
             <h5>{{title}}</h5>
             <p>{{post}}</p>
-            <a href="post/details/{{id}}" class="btn btn-warning" tabindex="-1" role="button">Detalles</a>
+            <a href="/post/detalles/{{id}}" class="btn btn-warning" tabindex="-1" role="button">Detalles</a>
             <hr>
             {{/each}}
-
-            <a href="post/create" class="btn btn-secondary" tabindex="-1" role="button">Crea un post</a>
 
         </div>
     </div>

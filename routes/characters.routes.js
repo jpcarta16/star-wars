@@ -8,7 +8,7 @@ const api = new ApiCharacters()
 
 
 
-router.get("/list-characters", (req, res, next) => {
+router.get("/lista-personajes", (req, res, next) => {
 
     api
         .getAllCharacters()
@@ -19,7 +19,7 @@ router.get("/list-characters", (req, res, next) => {
 })
 
 
-router.get("/list/details/:character_id", (req, res, next) => {
+router.get("/lista/detalles/:character_id", (req, res, next) => {
 
     const { character_id } = req.params
 

@@ -1,6 +1,7 @@
 const { Schema, model, default: mongoose } = require("mongoose");
 
 const User = require("./User.model");
+const Comment = require("./comment.model");
 
 const postSchema = new Schema(
 
@@ -9,6 +10,10 @@ const postSchema = new Schema(
       type: mongoose.Types.ObjectId,
       ref: "User"
     },
+    comments: [{
+      type: mongoose.Types.ObjectId,
+      ref: 'Comment'
+    }],
 
     title: {
       type: String,

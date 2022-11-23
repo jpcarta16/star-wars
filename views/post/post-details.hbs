@@ -1,16 +1,15 @@
 <div class="container d-flex flex-wrap justyfy-content-center gap-3">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-8">
-
-                <div class="card-body">
-                    <h5 class="card-title">{{post.owner.username}}</h5>
-                    <p class="card-text"><small class="text-muted"></small>{{post.title}}</p>
-                    <p class="card-text"><small class="text-muted"></small>{{post.post}}</p>
-
-                </div>
-
-            </div>
+    <div class="card mt-5">
+        <div class="card-header">
+            {{post.owner.username}}
+        </div>
+        <div class="card-body mt-3" style="width: 18rem;">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.post}}</p>
+            <a href="/comentarios/crear" class="btn btn-dark">Comenta este post</a>
         </div>
     </div>
+</div>
+</div>
+</div>
 </div>
