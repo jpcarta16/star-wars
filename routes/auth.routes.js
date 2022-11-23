@@ -17,7 +17,7 @@ router.get('/crear', isLoggedOut, (req, res) => {
 
 
 router.post('/crear', isLoggedOut, (req, res) => {
-    console.log(req.body)
+
     const { username, password, type } = req.body
 
     // const type = Sith ? "Sith" : "Jedi"
@@ -32,7 +32,7 @@ router.post('/crear', isLoggedOut, (req, res) => {
             return User.create({ type, username, password: hashedPassword })
         })
         .then(() => res.redirect('/iniciar-sesion'))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 
@@ -63,7 +63,7 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
 
             res.redirect('/')
         })
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 

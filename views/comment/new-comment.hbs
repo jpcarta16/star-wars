@@ -5,7 +5,7 @@
         <div class="col-md-6">
             <hr>
 
-            <form action="/post/detalles/{{id}}" method="POST">
+            <form action="/comentarios/crear/{{post_id}}" method="POST">
                 <div class="mb-3">
                     <label for="title" class="form-label">Título</label>
                     <input type="title" class="form-control" id="title" name="title">
@@ -13,7 +13,7 @@
 
                 <div class="mb-3">
                     <label for="comment" class="form-label">Comentario</label>
-                    <input type="comment" class="form-control" id="comment" name="comment">
+                    <input type="comment" class="form-control" id="comment" name="description">
                 </div>
 
                 <button type="submit" class="btn btn-dark">Upload comment</button>

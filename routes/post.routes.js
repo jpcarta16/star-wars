@@ -3,6 +3,7 @@ const express = require('express');
 const { isLoggedIn } = require('../middleware/route');
 
 const Post = require('../models/Post.model');
+const Comment = require('../models/Comment.model')
 
 const router = express.Router()
 
@@ -23,7 +24,7 @@ router.post("/crear", isLoggedIn, (req, res, next) => {
     .then(() => {
       res.redirect('/post')
     })
-    .catch(err => console.log(err))
+    .catch(err => next(err))
 })
 
 
@@ -35,21 +36,34 @@ router.get("/", isLoggedIn, (req, res, next) => {
     .then(post => {
       res.render('post/post', { post })
     })
-    .catch(err => console.log(err))
+    .catch(err => next(err))
 })
 
 
 router.get("/detalles/:post_id", (req, res, next) => {
 
+
   const { post_id } = req.params
+  // const promises = [
+  //   Post.findById(post_id).populate('owner comments'),
+  //   Comment.find({ owner: post_id })
+  // ]
+
+  // Promise
+  //   .all(promises)
+  //   .then((post, comments) => {
+  //     console.log(comments)
+  //     res.send(comments)
+  //   })
 
   Post
     .findById(post_id)
     .populate('owner comments')
     .then(post => {
+      console.log(post.comments)
       res.render("post/post-details", { post })
     })
-    .catch(err => console.log(err))
+    .catch(err => next(err))
 
 })
 

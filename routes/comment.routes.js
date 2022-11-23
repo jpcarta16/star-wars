@@ -2,26 +2,39 @@ const express = require('express');
 
 const { isLoggedIn } = require('../middleware/route');
 
-const Post = require('../models/Post.model');
+const Comment = require("../models/Comment.model")
+
+const Post = require("../models/Post.model")
 
 const router = express.Router();
 
 
-router.get("/crear", isLoggedIn, (req, res, next) => {
-    res.render("comment/new-comment")
+
+
+router.get("/crear/:post_id", isLoggedIn, (req, res, next) => {
+    const { post_id } = req.params
+    res.render("comment/new-comment", { post_id })
+
 });
 
-router.post("/crear", isLoggedIn, (req, res, next) => {
+router.post("/crear/:post_id", isLoggedIn, (req, res, next) => {
 
-    const { title, post } = req.body
-    const { _id: comments } = req.session.currentUser
-
+    const { title, description } = req.body
+    const { _id: owner } = req.session.currentUser
+    const { post_id } = req.params
     Comment
-        .create([owner, title, comment])
-        .then(() => {
-            res.redirect('/post')
+        .create({ owner, title, description })
+        .then(newComment => {
+            console.log(newComment)
+            const commentId = newComment._id
+            Post
+                .findByIdAndUpdate(post_id, { $push: { comments: commentId } })
+                .then(() => {
+                    res.redirect(`/post/detalles/${post_id}`)
+                })
+
         })
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 });
 
 

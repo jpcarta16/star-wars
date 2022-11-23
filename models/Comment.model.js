@@ -1,6 +1,5 @@
 const { Schema, model, default: mongoose } = require("mongoose");
 
-const User = require("./User.model");
 
 
 const commentSchema = new Schema(
@@ -15,7 +14,7 @@ const commentSchema = new Schema(
       type: String,
       required: true
     },
-    comment: {
+    description: {
       type: String,
       required: true
     }

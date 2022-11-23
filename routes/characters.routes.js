@@ -15,7 +15,7 @@ router.get("/lista-personajes", (req, res, next) => {
         .then(response => {
             res.render("users/character-list-All", { characters: response.data })
         })
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 
@@ -28,7 +28,7 @@ router.get("/lista/detalles/:character_id", (req, res, next) => {
         .then(response => {
             res.render("users/character-details", { characters: response.data })
         })
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 module.exports = router

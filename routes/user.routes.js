@@ -29,7 +29,7 @@ router.get("/lista-usuarios", (req, res, next) => {
         .then(users => {
             res.render('users/character-list-All', { users })
         })
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 
@@ -46,7 +46,7 @@ router.get("/lista-usuarios/:user_id", (req, res, next) => {
                 isSoldier: req.session.currentUser.role === 'soldier',
             })
         })
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 
@@ -56,24 +56,33 @@ router.get("/editar/:id", (req, res, next) => {
 
     User
         .findById(id)
-        .then(character => res.render('users/edit-character', {
-            character,
+        .then(user => res.render('users/edit-character', {
+            user,
             isMaster: req.session.currentUser.role === 'Master',
             isSoldier: req.session.currentUser.role === 'soldier',
         }))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 
 router.post("/editar/:id", (req, res, next) => {
 
-    const { id: user_id } = req.params
-    const { name } = req.body
+    const { id } = req.params
+    const { type } = req.body
 
     User
-        .findOne(user_id, { name, type })
+        .findOne(user_id, { type })
         .then(() => res.redirect('/users/user-list'))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
+})
+
+router.post("/eliminar/:id", (req, res, next) => {
+    const { id } = req.params
+
+    User
+        .findByIdAndDelete(id)
+        .then(() => res.redirect('/users/user-list'))
+        .catch(err => next(err))
 })
 
 

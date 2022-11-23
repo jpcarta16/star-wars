@@ -47,5 +47,23 @@ h1 {
 }
 
 .card-img-top {
-  height: 45%
+  height: 65%
+}
+
+#character-card {
+  height: 25rem;
+
+}
+
+.characters {
+  background-image: url('./../images/stars-background.png');
+}
+
+#characters-letter {
+  color: goldenrod
+}
+
+.card-body {
+  background-color: midnightblue;
+  color: goldenrod
 }
