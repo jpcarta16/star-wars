@@ -44,23 +44,12 @@ router.get("/detalles/:post_id", (req, res, next) => {
 
 
   const { post_id } = req.params
-  // const promises = [
-  //   Post.findById(post_id).populate('owner comments'),
-  //   Comment.find({ owner: post_id })
-  // ]
-
-  // Promise
-  //   .all(promises)
-  //   .then((post, comments) => {
-  //     console.log(comments)
-  //     res.send(comments)
-  //   })
 
   Post
     .findById(post_id)
-    .populate('owner comments')
+    .populate('owner')
+    .populate({ path: 'comments', populate: { path: 'owner' } })
     .then(post => {
-      console.log(post.comments)
       res.render("post/post-details", { post })
     })
     .catch(err => next(err))

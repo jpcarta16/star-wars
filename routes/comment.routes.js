@@ -25,7 +25,6 @@ router.post("/crear/:post_id", isLoggedIn, (req, res, next) => {
     Comment
         .create({ owner, title, description })
         .then(newComment => {
-            console.log(newComment)
             const commentId = newComment._id
             Post
                 .findByIdAndUpdate(post_id, { $push: { comments: commentId } })

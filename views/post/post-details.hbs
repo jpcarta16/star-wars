@@ -8,13 +8,14 @@
             <p class="card-text">{{post.post}}</p>
             <a href="/comentarios/crear/{{post._id}}" class="btn btn-dark">Comenta este post</a>
         </div>
-        <p class="card-text">{{#each post.comments}}</p>
-        <hr>
-        <p>{{owner}}</p>
-        <p>{{title}}</p>
-        <p>{{description}}</p>
-        <hr>
-        <p class="card-text">{{/each}}</p>
-    </div>
-
-</div>
+        {{#each post.comments}}
+        <div class="card mt-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{owner}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{title}}</h6>
+                <p class="card-text">{{description}}</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+        {{/each}}
