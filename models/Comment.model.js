@@ -1,14 +1,11 @@
 const { Schema, model, default: mongoose } = require("mongoose");
 
-
-
 const commentSchema = new Schema(
 
   {
     owner: {
       type: mongoose.Types.ObjectId,
       ref: "User"
-
     },
     title: {
       type: String,
@@ -23,7 +20,6 @@ const commentSchema = new Schema(
     timestamps: true
   }
 );
-
 
 const Comment = model("Comment", commentSchema);
 

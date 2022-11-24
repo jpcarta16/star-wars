@@ -9,8 +9,6 @@ const Post = require("../models/Post.model")
 const router = express.Router();
 
 
-
-
 router.get("/crear/:post_id", isLoggedIn, (req, res, next) => {
     const { post_id } = req.params
     res.render("comment/new-comment", { post_id })

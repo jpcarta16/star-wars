@@ -77,6 +77,42 @@ h1 {
   bottom: 0;
 }
 
+#create-post {
+  width: 1550px;
+  height: 750px;
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+#post-details {
+  width: 1550px;
+  height: 750px;
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+#user-details {
+  width: 1550px;
+  height: 750px;
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+#character-details {
+  width: 1550px;
+  height: 750px;
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
 .card-img-top {
   height: 65%
 }
@@ -93,6 +129,9 @@ h1 {
   color: goldenrod
 }
 
+#imagen-add {
+  color: goldenrod
+}
 
 .card-body {
   background-color: grey;
@@ -106,7 +145,6 @@ h1 {
 #character-detail-image {
   height: 100%;
   width: 100%;
-
 }
 
 #post-detail-card {
@@ -133,13 +171,60 @@ h1 {
 }
 
 #user-list-ul {
-  background-color: white;
+  background-color: goldenrod;
+  list-style-type: none;
+  background-color: black;
+}
+
+#imagen-add {
+  background-color: black;
   list-style-type: none;
 }
 
 #user-list-li {
   text-decoration: none;
-  color: black;
+  color: goldenrod;
   padding: 40%;
+}
 
+#btn-prueba {
+  background: black;
+  cursor: pointer;
+  border: none;
+  padding: 16px 32px;
+  color: #FFF;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  border-radius: 12px;
+}
+
+#btn-prueba::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg,
+      red, blue, deeppink, blue, red, blue, deeppink, blue);
+  background-size: 800%;
+  border-radius: 10px;
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }

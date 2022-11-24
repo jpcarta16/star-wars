@@ -21,7 +21,7 @@ router.post("/crear", isLoggedIn, fileUploader.single('imageUrl'), (req, res, ne
   const { _id: owner } = req.session.currentUser
 
   Post
-    .create({ owner, title, post, imageUrl: req.file.path })
+    // .create({ owner, title, post, imageUrl: req.file.path })
     .then(() => {
       res.redirect('/post')
     })
