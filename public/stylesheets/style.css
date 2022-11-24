@@ -63,7 +63,26 @@ h1 {
   color: goldenrod
 }
 
+
 .card-body {
-  background-color: midnightblue;
-  color: goldenrod
+  background-color: grey;
+  color: goldenrod;
+
+}
+
+#post-picture {
+  height: 20rem
+}
+
+#character-detail-image {
+  height: 100%
+}
+
+#post-detail-card {
+  height: 20rem;
+}
+
+.card-body-2 {
+  margin-left: 10px;
+  padding: 20px
 }

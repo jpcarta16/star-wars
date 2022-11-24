@@ -15,6 +15,10 @@ const postSchema = new Schema(
       ref: 'Comment'
     }],
 
+    imageUrl: {
+      type: String,
+    },
+
     title: {
       type: String,
       required: true

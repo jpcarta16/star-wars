@@ -16,11 +16,11 @@ router.get("/crear", isLoggedIn, (req, res, next) => {
 
 router.post("/crear", isLoggedIn, (req, res, next) => {
 
-  const { title, post } = req.body
+  const { title, post, imageUrl } = req.body
   const { _id: owner } = req.session.currentUser
 
   Post
-    .create({ owner, title, post })
+    .create({ owner, title, post, imageUrl })
     .then(() => {
       res.redirect('/post')
     })

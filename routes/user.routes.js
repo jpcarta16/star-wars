@@ -23,16 +23,6 @@ router.get("/lista-usuarios", isLoggedIn, (req, res, next) => {
 })
 
 
-router.get("/lista-usuarios", (req, res, next) => {
-    User
-        .find()
-        .then(users => {
-            res.render('users/character-list-All', { users })
-        })
-        .catch(err => next(err))
-})
-
-
 router.get("/lista-usuarios/:user_id", (req, res, next) => {
 
     const { user_id } = req.params
@@ -72,7 +62,7 @@ router.post("/editar/:id", (req, res, next) => {
 
     User
         .findOne(user_id, { type })
-        .then(() => res.redirect('/users/user-list'))
+        .then(() => res.redirect('/usuarios/lista-usuarios'))
         .catch(err => next(err))
 })
 
@@ -81,7 +71,7 @@ router.post("/eliminar/:id", (req, res, next) => {
 
     User
         .findByIdAndDelete(id)
-        .then(() => res.redirect('/users/user-list'))
+        .then(() => res.redirect('/usuarios/lista-usuarios'))
         .catch(err => next(err))
 })
 

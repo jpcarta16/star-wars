@@ -10,7 +10,7 @@
 
             {{#if isMaster}}
             <a href="/usuarios/editar/{{user._id}}" class="btn btn-warning">Editar Usuario</a>
-            <form action="/usuarios/eliminar/{{_id}}" method="POST" style="display: inline">
+            <form action="/usuarios/eliminar/{{user._id}}" method="POST" style="display: inline">
                 <input type="submit" value="Eliminar Personaje" class="btn btn-danger">
             </form>
             {{/if}}
