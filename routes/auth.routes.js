@@ -22,7 +22,6 @@ router.post('/crear', isLoggedOut, (req, res) => {
 
     // const type = Sith ? "Sith" : "Jedi"
 
-
     bcryptjs
         .genSalt(saltRounds)
         .then(salt => {
@@ -57,10 +56,6 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
             }
             req.session.currentUser = user
 
-            req.app.locals.username = user.username
-
-            req.app.locals.type = user.type
-
             res.redirect('/')
         })
         .catch(err => next(err))
@@ -70,10 +65,6 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
 router.get('/cerrar-sesion', (req, res) => {
 
     req.session.destroy(() => {
-
-        req.app.locals.username = null
-
-        req.app.locals.type = null
 
         res.redirect('/')
     })

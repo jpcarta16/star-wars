@@ -1,100 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>{{appTitle}}</title>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>{{appTitle}}</title>
 
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-   <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-
-
-<body>
-
-   <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-
-         <a class="navbar-brand" href="/" id="listcharacter">Star Wars Page {{username}}</a>
-
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-
-         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-            <ul class="navbar-nav">
-               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/">Home</a>
-               </li>
-
-               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown"
-                     aria-expanded="false">Personajes</a>
-                  <ul class="dropdown-menu">
-
-                     <li><a class="dropdown-item" href="/personajes/lista-personajes">Lista de todos </a></li>
-                     <li><a class="dropdown-item" href="/usuarios/lista-usuarios">Lista</a></li>
-                     <li>
-                        <hr class=“dropdown-divider”>
-                     </li>
-
-                     {{#unless username}}
-                     <li><a class="dropdown-item" href="/crear">Crear personaje</a></li>
-                     {{/unless}}
-
-                  </ul>
-               </li>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+      <link rel="stylesheet" href="/stylesheets/style.css" />
+   </head>
 
 
-               <li class="nav-item dropdown">
+   <body>
 
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                     aria-expanded="false">
-                     Social
-                  </a>
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <div class="container-fluid">
 
-                  <ul class="dropdown-menu">
-                     <li><a class="dropdown-item" href="/post">Posts</a></li>
-                     <li><a class="dropdown-item" href="/post/crear">Crear Post</a></li>
-                  </ul>
+            <a class="navbar-brand" href="/" id="listcharacter">Star Wars Page {{username}}</a>
 
-               </li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+               aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
 
-               <li class="nav-item dropdown">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-                  <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown"
-                     aria-expanded="false">Sesion </a>
-                  <ul class="dropdown-menu">
+               <ul class="navbar-nav">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
 
-                     {{#unless username}}
-                     <li><a class="dropdown-item" href="/iniciar-sesion">Iniciar sesion</a>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Personajes</a>
+                     <ul class="dropdown-menu">
+
+                        <li><a class="dropdown-item" href="/personajes/lista-personajes">Lista de todos </a></li>
+                        <li><a class="dropdown-item" href="/usuarios/lista-usuarios">Lista</a></li>
+                        <li>
+                           <hr class=“dropdown-divider”>
+                        </li>
+
+                        {{#unless username}}
+                           <li><a class="dropdown-item" href="/crear">Crear personaje</a></li>
                         {{/unless}}
-                     </li>
 
-                     {{#if username}}
+                     </ul>
+                  </li>
+
+
+                  <li class="nav-item dropdown">
+
+                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Social
+                     </a>
+
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/post">Posts</a></li>
+                        <li><a class="dropdown-item" href="/post/crear">Crear Post</a></li>
+                     </ul>
+
+                  </li>
+
+                  <li class="nav-item dropdown">
+
+                     <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Sesion </a>
+                     <ul class="dropdown-menu">
+
+                        {{#unless username}}
+                           <li><a class="dropdown-item" href="/iniciar-sesion">Iniciar sesion</a>
+                        {{/unless}}
+                  </li>
+
+                  {{#if username}}
                      <li><a class="dropdown-item" href="/cerrar-sesion">Cerrar sesion</a></li>
-                     {{/if}}
+                  {{/if}}
 
-                  </ul>
+               </ul>
                </li>
 
-            </ul>
+               </ul>
+            </div>
          </div>
-      </div>
-   </nav>
+      </nav>
 
-   {{{body}}}
+      {{{body}}}
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-      crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+         crossorigin="anonymous"></script>
 
-   <script src="/js/script.js"></script>
-</body>
+      <script src="/js/script.js"></script>
+   </body>
 
 </html>

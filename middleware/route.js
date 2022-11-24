@@ -27,9 +27,19 @@ const checkRoles = (...rolesToCheck) => (req, res, next) => {
     }
 }
 
+const setLocals = (req, res, next) => {
+    if (req.session.currentUser) {
+        req.app.locals.username = req.session.currentUser.username
+        req.app.locals.type = req.session.currentUser.type
+    } else {
+        req.app.locals.username = null
+        req.app.locals.type = null
+    } next()
+}
 
 module.exports = {
     isLoggedIn,
     isLoggedOut,
     checkRoles,
+    setLocals,
 }

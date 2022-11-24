@@ -1,5 +1,7 @@
-module.exports = app => {
+const { setLocals } = require("./../middleware/route")
 
+module.exports = app => {
+    app.use(setLocals)
     app.use("/", require("./index.routes"))
     app.use("/", require("./auth.routes"))
     app.use("/usuarios", require("./user.routes"))

@@ -10,7 +10,6 @@ a {
 
 h1 {
   color: 15px;
-  font-family: "Star Jedi";
 }
 
 #myVideo {
@@ -23,8 +22,6 @@ h1 {
 
 }
 
-
-
 #listcharacter {
   color: goldenrod;
   font-family: "Star Jedi";
@@ -32,7 +29,7 @@ h1 {
 
 #index-p {
   color: goldenrod;
-  font-family: 'Franklin Gothic Medium';
+  font-family: 'Star jedi';
 }
 
 #sithUser {
@@ -67,8 +64,17 @@ h1 {
   position: fixed;
   right: 0;
   bottom: 0;
-  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+}
 
+#post {
+  width: 1550px;
+  height: 750px;
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
 }
 
 .card-img-top {
@@ -91,7 +97,6 @@ h1 {
 .card-body {
   background-color: grey;
   color: goldenrod;
-
 }
 
 #post-picture {
@@ -114,4 +119,25 @@ h1 {
 #comments {
   background-color: blue;
   color: goldenrod;
+}
+
+#button-post {
+  color: white;
+  text-decoration: none;
+}
+
+#user-button {
+  color: goldenrod;
+}
+
+#user-list-ul {
+  background-color: white;
+  list-style-type: none;
+}
+
+#user-list-li {
+  text-decoration: none;
+  color: black;
+  padding: 40%;
+
 }
