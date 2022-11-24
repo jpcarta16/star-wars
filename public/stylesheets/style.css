@@ -1,5 +1,7 @@
+@import url(//db.onlinewebfonts.com/c/0c724f6aa457310440cf8949c615cbd7?family=Star+Jedi);
+
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px, "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -8,6 +10,7 @@ a {
 
 h1 {
   color: 15px;
+  font-family: "Star Jedi";
 }
 
 #myVideo {
@@ -27,7 +30,7 @@ h1 {
 
 #listcharacter {
   color: #FFE81F;
-  font-family: 'Franklin Gothic Medium';
+  font-family: "Star Jedi";
 }
 
 #index-p {
@@ -35,6 +38,23 @@ h1 {
   font-family: 'Franklin Gothic Medium';
 }
 
+#sithUser {
+  width: 1550px;
+  height: 690px;
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#jediUser {
+  width: 1550px;
+  height: 690px;
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 
 #estrella {
   z-index: -1;
@@ -43,7 +63,6 @@ h1 {
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-
 }
 
 .card-img-top {
@@ -52,7 +71,6 @@ h1 {
 
 #character-card {
   height: 25rem;
-
 }
 
 .characters {
