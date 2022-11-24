@@ -1,28 +1,29 @@
 <h1 id="listcharacter">Details</h1>
-<div class="row justify-content-center d-flex">
-    <div class="col-md-4 mb-3">
-        <div class="card">
-            <div class="card-body">
+<img src="/images/user-details.jpg" alt="user-details" id="user-details">
+<div class="row justify-content-center d-flex"></div>
+<div class="col-md-4 mb-3">
+    <div class="card">
+        <div class="card-body">
 
-                <h3 class="card-title">Bienvenido {{user.username}}</h3>
-                <p class="card-text text-capitalize"> Rango: {{user.role}}</p>
-                <p class="card-text text-capitalize"> Team:{{user.type}}</p>
+            <h3 class="card-title">Bienvenido {{user.username}}</h3>
+            <p class="card-text text-capitalize"> Rango: {{user.role}}</p>
+            <p class="card-text text-capitalize"> Team:{{user.type}}</p>
 
-                {{#if isMaster}}
-                <a href="/usuarios/editar/{{user._id}}" class="btn btn-warning">Editar Usuario</a>
-                <form action="/usuarios/eliminar/{{user._id}}" method="POST" style="display: inline">
-                    <input type="submit" value="Eliminar Personaje" class="btn btn-danger">
-                </form>
-                <a href="/usuarios/rangos/{{user._id}}/Jedi" class="btn btn-success">Hacer Jedi</a>
-                <a href="/usuarios/rangos/{{user._id}}/Sith" class="btn btn-danger">Hacer Sith</a>
-                {{/if}}
-                {{#if isUser}}
-                <a href="/usuarios/editar/{{user._id}}" class="btn btn-warning">Editar</a>
-                {{/if}}
+            {{#if isMaster}}
+            <a href="/usuarios/editar/{{user._id}}" class="btn btn-warning">Editar Usuario</a>
+            <form action="/usuarios/eliminar/{{user._id}}" method="POST" style="display: inline">
+                <input type="submit" value="Eliminar Personaje" class="btn btn-danger">
+            </form>
+            <a href="/usuarios/rangos/{{user._id}}/Jedi" class="btn btn-success">Hacer Jedi</a>
+            <a href="/usuarios/rangos/{{user._id}}/Sith" class="btn btn-danger">Hacer Sith</a>
+            {{/if}}
+            {{#if isUser}}
+            <a href="/usuarios/editar/{{user._id}}" class="btn btn-warning">Editar</a>
+            {{/if}}
 
-
-            </div>
 
         </div>
+
     </div>
+</div>
 </div>

@@ -1,29 +1,35 @@
 <div class="container d-flex flex-wrap justyfy-content-center gap-3">
+    <img src="/images/post-details.jpg" alt="post-details" id="post-details">
     <div class="card mt-5" id="post-details-card">
+
         <div class="card-header">
             {{post.owner.username}}
         </div>
+
         <div class="card-body mt-3" style="width: 50rem;">
             <img src="{{post.imageUrl}}" class="card-img-top" alt="Character-picture">
             <h5 class="card-title" id="listcharacter">{{post.title}}</h5>
             <p class="card-text">{{post.post}}</p>
             <a href="/comentarios/crear/{{post._id}}" class="btn btn-warning">Comenta este post</a>
+
             {{#if isMaster}}
             <form action="/post/eliminar/{{post._id}}" method="POST" style="display: inline">
                 <input type="submit" value="Eliminar Post" class="btn btn-danger">
             </form>
+
             {{/if}}
+
             {{#if isUser}}
             <form action="/post/eliminar/{{post._id}}" method="POST" style="display: inline">
                 <input type="submit" value="Eliminar Post" class="btn btn-danger">
             </form>
             {{/if}}
 
-
         </div>
     </div>
 </div>
 <div class="container">
+
     {{#each post.comments}}
     <div id="comments" class="card mt-5" style="width: 18rem;">
         <div class="card-body-2">
@@ -35,7 +41,6 @@
                 <input type="submit" value="Eliminar Post" class="btn btn-danger">
             </form>
         </div>
-    </div>
 
-    {{/each}}
-</div>
+        {{/each}}
+    </div>

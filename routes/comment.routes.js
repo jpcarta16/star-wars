@@ -40,9 +40,9 @@ router.post("/crear/:post_id", isLoggedIn, (req, res, next) => {
         const { id } = req.params
 
         Comment
-            .findByIdAndUpdate(id, { $pull: { comments: comment_Id } })
+            .findByIdAndUpdate(post_id, { $pull: { comments: commentId } })
             .then(() => {
-                res.redirect(`/post/detalles/${id}`)
+                res.redirect(`/post/detalles/${post_id}`)
 
             })
             .catch(err => console.log(err))

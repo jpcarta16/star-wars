@@ -1,15 +1,17 @@
 <h1 id="listcharacter">Crear Post</h1>
 <hr>
+<img src="/images/create-post.png" alt="create-post" id="create-post">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <hr>
 
             <form action="/post/crear" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
+                <div class="mb-3" id="imagen-add">
                     <label for="imageUrl" class="form-label">Imagen</label>
                     <input type="file" class="form-control-file" id="imageUrl" name="imageUrl">
                 </div>
+
                 <div class="mb-3">
                     <label for="title" class="form-label">Título</label>
                     <input type="title" class="form-control" id="title" name="title">

@@ -1,6 +1,5 @@
 const { Schema, model, default: mongoose } = require("mongoose");
 
-
 const postSchema = new Schema(
 
   {
