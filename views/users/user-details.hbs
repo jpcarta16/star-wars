@@ -13,6 +13,11 @@
             <form action="/usuarios/eliminar/{{user._id}}" method="POST" style="display: inline">
                 <input type="submit" value="Eliminar Personaje" class="btn btn-danger">
             </form>
+            <a href="/usuarios/rangos/{{user._id}}/Jedi" class="btn btn-success">Hacer Jedi</a>
+            <a href="/usuarios/rangos/{{user._id}}/Sith" class="btn btn-danger">Hacer Sith</a>
+            {{/if}}
+            {{#if isUser}}
+            <a href="/usuarios/editar/{{user._id}}" class="btn btn-warning">Editar</a>
             {{/if}}
 
 

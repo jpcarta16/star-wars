@@ -1,4 +1,5 @@
 const express = require('express');
+const fileUploader = require('../config/cloudinary.config')
 
 const { isLoggedIn } = require('../middleware/route');
 
@@ -14,13 +15,13 @@ router.get("/crear", isLoggedIn, (req, res, next) => {
 })
 
 
-router.post("/crear", isLoggedIn, (req, res, next) => {
+router.post("/crear", isLoggedIn, fileUploader.single('imageUrl'), (req, res, next) => {
 
-  const { title, post, imageUrl } = req.body
+  const { title, post } = req.body
   const { _id: owner } = req.session.currentUser
 
   Post
-    .create({ owner, title, post, imageUrl })
+    .create({ owner, title, post, imageUrl: req.file.path })
     .then(() => {
       res.redirect('/post')
     })
@@ -46,7 +47,7 @@ router.get("/detalles/:post_id", (req, res, next) => {
   const { post_id } = req.params
 
   Post
-    .findById(post_id)
+    .findByIdAndUpdate(post_id)
     .populate('owner')
     .populate({ path: 'comments', populate: { path: 'owner' } })
     .then(post => {
@@ -54,11 +55,15 @@ router.get("/detalles/:post_id", (req, res, next) => {
         post,
         isMaster: req.session.currentUser.role === 'Master',
         isSoldier: req.session.currentUser.role === 'soldier',
+        isUser: req.session.currentUser._id === post.owner.toString()
+
       })
     })
     .catch(err => next(err))
 
 })
+
+router.get("/editar/:post_id")
 
 
 router.post('/eliminar/:post_id', (req, res, next) => {

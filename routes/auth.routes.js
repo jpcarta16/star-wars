@@ -11,17 +11,16 @@ const bcryptjs = require('bcryptjs');
 const saltRounds = 10
 
 
-router.get('/crear', isLoggedOut, (req, res) => {
+router.get('/crear', isLoggedOut, (req, res, next) => {
     res.render('auth/signup')
 })
 
 
-router.post('/crear', isLoggedOut, (req, res) => {
+router.post('/crear', isLoggedOut, (req, res, next) => {
 
     const { username, password, type } = req.body
 
     // const type = Sith ? "Sith" : "Jedi"
-
 
     bcryptjs
         .genSalt(saltRounds)
@@ -36,10 +35,10 @@ router.post('/crear', isLoggedOut, (req, res) => {
 })
 
 
-router.get('/iniciar-sesion', isLoggedOut, (req, res) => { res.render('auth/login') })
+router.get('/iniciar-sesion', isLoggedOut, (req, res,) => { res.render('auth/login') })
 
 
-router.post('/iniciar-sesion', isLoggedOut, (req, res) => {
+router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
     const { username, password } = req.body
 
     User
