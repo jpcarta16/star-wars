@@ -1,20 +1,26 @@
 {{#if isSith}}
-<img src="/images/Sith.png" alt="sithUser" id="sithUser">
+    <img src="/images/Sith.png" alt="sithUser" id="sithUser">
 {{else}}
-<img src="/images/Jedi.jpg" alt="jediUser" id="jediUser">
+    <img src="/images/Jedi.jpg" alt="jediUser" id="jediUser">
 {{/if}}
 <div class="container">
-    <h1 id="listcharacter">Nosotr@s</h1>
-    <hr>
 
-    {{#each users}}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
 
-    <ul>
-        <li><a class="btn btn-warning" href="/usuarios/lista-usuarios/{{_id}}" role="button">{{username}}</a></li>
-    </ul>
-    {{/each}}
+            <h1 id="listcharacter">Nosotr@s</h1>
+            <hr>
+            <ul id="user-list-ul">
+                {{#each users}}
+                    <li class="py-2"><a id="user-list-li" href="/usuarios/lista-usuarios/{{_id}}"
+                            role="button">{{username}}</a></li>
+                {{/each}}
+            </ul>
 
-    <hr>
+            <hr>
 
-    <a href="/" class="btn btn-warning">Volver a incio</a>
+            <a href="/" class="btn btn-warning">Volver a incio</a>
+        </div>
+    </div>
+
 </div>

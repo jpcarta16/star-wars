@@ -56,10 +56,6 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
             }
             req.session.currentUser = user
 
-            req.app.locals.username = user.username
-
-            req.app.locals.type = user.type
-
             res.redirect('/')
         })
         .catch(err => next(err))
@@ -69,10 +65,6 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
 router.get('/cerrar-sesion', (req, res) => {
 
     req.session.destroy(() => {
-
-        req.app.locals.username = null
-
-        req.app.locals.type = null
 
         res.redirect('/')
     })
