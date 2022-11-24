@@ -5,21 +5,26 @@
         </div>
         <div class="card-body mt-3" style="width: 50rem;">
             <img src="{{post.imageUrl}}" class="card-img-top" alt="Character-picture">
-            <h5 class="card-title">{{post.title}}</h5>
+            <h5 class="card-title" id="listcharacter">{{post.title}}</h5>
             <p class="card-text">{{post.post}}</p>
             <a href="/comentarios/crear/{{post._id}}" class="btn btn-warning">Comenta este post</a>
+            {{#if isMaster}}
+            <form action="/post/eliminar/{{post._id}}" method="POST" style="display: inline">
+                <input type="submit" value="Eliminar Post" class="btn btn-danger">
+            </form>
+            {{/if}}
+
         </div>
     </div>
 </div>
 <div class="container">
     {{#each post.comments}}
-    <div class="card mt-5" style="width: 18rem;">
+    <div id="comments" class="card mt-5" style="width: 18rem;">
         <div class="card-body-2">
             <h5 class="card-title">{{owner.username}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{title}}</h6>
+            <h6 class="card-title">{{title}}</h6>
+            <hr>
             <p class="card-text">{{description}}</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
         </div>
     </div>
 

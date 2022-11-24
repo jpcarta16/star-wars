@@ -23,18 +23,15 @@ h1 {
 
 }
 
-#index-title {
-  color: #FFE81F;
-  font-family: 'Franklin Gothic Medium';
-}
+
 
 #listcharacter {
-  color: #FFE81F;
+  color: goldenrod;
   font-family: "Star Jedi";
 }
 
 #index-p {
-  color: #FFE81F;
+  color: goldenrod;
   font-family: 'Franklin Gothic Medium';
 }
 
@@ -63,6 +60,15 @@ h1 {
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
+}
+
+#create {
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+
 }
 
 .card-img-top {
@@ -97,10 +103,15 @@ h1 {
 }
 
 #post-detail-card {
-  height: 20rem;
+  object-fit: cover;
 }
 
 .card-body-2 {
   margin-left: 10px;
   padding: 20px
+}
+
+#comments {
+  background-color: blue;
+  color: goldenrod;
 }

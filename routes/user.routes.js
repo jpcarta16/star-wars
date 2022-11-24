@@ -14,13 +14,12 @@ router.get("/mi-perfil", isLoggedIn, (req, res, next) => {
 
 
 router.get("/lista-usuarios", isLoggedIn, (req, res, next) => {
-
     User
         .find({ type: req.session.currentUser.type })
         .then(users => {
             res.render('users/user-list', {
                 users,
-                isSith: req.session.currentUser.type === 'Sith',
+                isSith: req.session.currentUser.type === 'Sith'
             })
         })
         .catch(err => (err))
@@ -28,8 +27,8 @@ router.get("/lista-usuarios", isLoggedIn, (req, res, next) => {
 
 
 router.get("/lista-usuarios/:user_id", (req, res, next) => {
+
     const { user_id } = req.params
-    console.log(req.session.currentUser.type)
 
     User
         .findById(user_id)
@@ -38,7 +37,7 @@ router.get("/lista-usuarios/:user_id", (req, res, next) => {
                 user,
                 isMaster: req.session.currentUser.role === 'Master',
                 isSoldier: req.session.currentUser.role === 'soldier',
-
+                isUser: req.session.currentUser._id === 'User'
             })
         })
         .catch(err => next(err))
@@ -67,7 +66,7 @@ router.post("/editar/:id", (req, res, next) => {
 
     User
         .findOne(user_id, { type })
-        .then(() => res.redirect('/usuarios/lista-usuarios'))
+        .then(() => res.redirect('usuarios/lista-usuarios'))
         .catch(err => next(err))
 })
 

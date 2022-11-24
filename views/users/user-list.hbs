@@ -1,19 +1,18 @@
 {{#if isSith}}
-    <img src="/images/Sith.png" alt="sithUser" id="sithUser">
-{{else }}
-    <img src="/images/Jedi.jpg" alt="jediUser" id="jediUser">
+<img src="/images/Sith.png" alt="sithUser" id="sithUser">
+{{else}}
+<img src="/images/Jedi.jpg" alt="jediUser" id="jediUser">
 {{/if}}
 <div class="container">
-    <h1>Nosotr@s</h1>
+    <h1 id="listcharacter">Nosotr@s</h1>
     <hr>
-    <p>{{isSith}}</p>
 
     {{#each users}}
 
-        <a href="/usuarios/lista-usuarios/{{_id}}">{{username}}</a>
-
+    <ul>
+        <li><a class="btn btn-warning" href="/usuarios/lista-usuarios/{{_id}}" role="button">{{username}}</a></li>
+    </ul>
     {{/each}}
-
 
     <hr>
 
