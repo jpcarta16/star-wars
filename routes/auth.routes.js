@@ -56,7 +56,7 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
             }
             req.session.currentUser = user
 
-            res.redirect('/')
+            res.redirect('/usuarios/lista-usuarios')
         })
         .catch(err => next(err))
 })

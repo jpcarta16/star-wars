@@ -1,7 +1,13 @@
 {{#if isSith}}
-    <img src="/images/Sith.png" alt="sithUser" id="sithUser">
+<img src="/images/Sith.png" alt="sithUser" id="sithUser">
+<div class="container" id="team">
+    <h1>Sith Team</h1>
+</div>
 {{else}}
-    <img src="/images/Jedi.jpg" alt="jediUser" id="jediUser">
+<img src="/images/Jedi.jpg" alt="jediUser" id="jediUser">
+<div class="container" id="team">
+    <h1>Jedi Team</h1>
+</div>
 {{/if}}
 <div class="container">
 
@@ -12,8 +18,8 @@
             <hr>
             <ul id="user-list-ul">
                 {{#each users}}
-                    <li class="py-2"><a id="user-list-li" href="/usuarios/lista-usuarios/{{_id}}"
-                            role="button">{{username}}</a></li>
+                <li class="py-2"><a id="user-list-li" href="/usuarios/lista-usuarios/{{_id}}"
+                        role="button">{{username}}</a></li>
                 {{/each}}
             </ul>
 

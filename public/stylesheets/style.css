@@ -1,5 +1,13 @@
 @import url(//db.onlinewebfonts.com/c/0c724f6aa457310440cf8949c615cbd7?family=Star+Jedi);
 
+#signup {
+  background-color: black;
+  color: goldenrod;
+  width: 35%;
+  padding-bottom: 20px;
+  border-radius: 10%
+}
+
 body {
   font: 14px, "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -22,9 +30,23 @@ h1 {
 
 }
 
+.create-post {
+  color: goldenrod;
+}
+
+#edit-user {
+  background-color: black;
+  color: goldenrod;
+  width: 30%;
+  margin-left: 50vh;
+  padding-bottom: 15px;
+  border: goldenrod 2px solid
+}
+
 #listcharacter {
   color: goldenrod;
   font-family: "Star Jedi";
+
 }
 
 #index-p {
@@ -50,6 +72,17 @@ h1 {
   bottom: 0;
 }
 
+#card-title {
+  background-color: goldenrod;
+  font-family: 'Star Jedi';
+  height: 50px;
+
+}
+
+#post-details-card {
+  background-color: black;
+}
+
 #estrella {
   z-index: -1;
   position: absolute;
@@ -66,6 +99,11 @@ h1 {
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
+}
+
+#team {
+  color: goldenrod;
+  font-family: 'Star jedi';
 }
 
 #post-image {
@@ -129,8 +167,14 @@ h1 {
   color: goldenrod
 }
 
+#carachter-detail-body {
+  height: 100%;
+  background-color: black;
+}
+
 #imagen-add {
-  color: goldenrod
+  color: goldenrod;
+
 }
 
 .card-body {
@@ -157,8 +201,9 @@ h1 {
 }
 
 #comments {
-  background-color: blue;
-  color: goldenrod;
+  background-color: white;
+  color: black;
+
 }
 
 #button-post {
@@ -174,6 +219,7 @@ h1 {
   background-color: goldenrod;
   list-style-type: none;
   background-color: black;
+  border: goldenrod 2px solid;
 }
 
 #imagen-add {
@@ -185,7 +231,8 @@ h1 {
 #user-list-li {
   text-decoration: none;
   color: goldenrod;
-  padding: 40%;
+  padding-left: 40%;
+
 }
 
 #btn-prueba {
@@ -214,6 +261,10 @@ h1 {
   border-radius: 10px;
   filter: blur(8px);
   animation: glowing 20s linear infinite;
+}
+
+#post-wall {
+  color: goldenrod;
 }
 
 @keyframes glowing {

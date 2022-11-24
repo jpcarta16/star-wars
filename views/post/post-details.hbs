@@ -1,14 +1,15 @@
-<div class="container d-flex flex-wrap justyfy-content-center gap-3">
+<div class="container d-flex flex-wrap justyfy-content-center gap-3 ml-5">
     <img src="/images/post-details.jpg" alt="post-details" id="post-details">
     <div class="card mt-5" id="post-details-card">
 
-        <div class="card-header">
-            {{post.owner.username}}
-        </div>
 
-        <div class="card-body mt-3" style="width: 50rem;">
+        <h2 class="container" id="card-title">{{post.owner.username}}</h2>
+
+
+        <div class="card-body mt-3" style="width: 50rem; background-color: black">
             <img src="{{post.imageUrl}}" class="card-img-top" alt="Character-picture">
             <h5 class="card-title" id="listcharacter">{{post.title}}</h5>
+            <hr>
             <p class="card-text">{{post.post}}</p>
             <a href="/comentarios/crear/{{post._id}}" class="btn btn-warning">Comenta este post</a>
 
@@ -28,10 +29,10 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container m-3">
 
     {{#each post.comments}}
-    <div id="comments" class="card mt-5" style="width: 18rem;">
+    <div id="comments" class="card mt-5" style="width: 30rem;">
         <div class="card-body-2">
             <h5 class="card-title">{{owner.username}}</h5>
             <h6 class="card-title">{{title}}</h6>
@@ -42,5 +43,6 @@
             </form>
         </div>
 
-        {{/each}}
+
     </div>
+    {{/each}}
