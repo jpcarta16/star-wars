@@ -13,6 +13,8 @@ const projectName = "Star-Wars-Fan-Page";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
+
+
 require('./routes')(app)
 require("./error-handling")(app);
 

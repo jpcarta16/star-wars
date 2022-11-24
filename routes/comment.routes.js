@@ -34,6 +34,20 @@ router.post("/crear/:post_id", isLoggedIn, (req, res, next) => {
 
         })
         .catch(err => next(err))
+
+    router.post('/eliminar/:id', (req, res, next) => {
+
+        const { id } = req.params
+
+        Comment
+            .findByIdAndUpdate(id, { $pull: { comments: comment_Id } })
+            .then(() => {
+                res.redirect(`/post/detalles/${id}`)
+
+            })
+            .catch(err => console.log(err))
+
+    })
 });
 
 

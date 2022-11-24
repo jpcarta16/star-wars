@@ -12,10 +12,6 @@ const userSchema = new Schema(
       enum: ['Jedi', 'Sith']
     },
 
-    imageUrl: {
-      type: String,
-    },
-
     role: {
       type: String,
       enum: ['Soldier', 'Master'],

@@ -1,23 +1,24 @@
 <h1 id="listcharacter">Post de Usuarios</h1>
 <hr>
-<img src="images/Post.jpg" alt="post" id="post">
+<img src="images/Post.jpg" alt="post-image" id="post-image">
 <div class="d-grid gap-2">
     <button class="btn btn-warning m-2" type="button"><a id="button-post" href="/post/crear">Crea un nuevo
             post</a></button>
 </div>
-<hr>
-<div class="container">
+<hr>xx
+<div class="container posts m-3" style="width: 50rem">
     <div class="row">
         <div class="col-mb-6">
 
             {{#each post}}
-                <img src="{{imageUrl}}" id="post-picture" alt="post-picture">
-                <h3>{{owner.username}}</h3>
-                <h5>{{title}}</h5>
-                <p>{{post}}</p>
-                <a href="post/detalles/{{_id}}" class="btn btn-warning" tabindex="-1" role="button">Detalles</a>
-                <hr>
+            <img src="{{imageUrl}}" id="post-picture" alt="post-picture">
+            <h3>{{owner.username}}</h3>
+            <h5>{{title}}</h5>
+            <p>{{post}}</p>
+            <a href="post/detalles/{{_id}}" class="btn btn-warning" tabindex="-1" role="button">Detalles</a>
+            <hr>
             {{/each}}
+
 
         </div>
     </div>

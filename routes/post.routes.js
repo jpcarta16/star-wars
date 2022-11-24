@@ -1,6 +1,5 @@
 const express = require('express');
 const fileUploader = require('../config/cloudinary.config')
-
 const { isLoggedIn } = require('../middleware/route');
 
 const Post = require('../models/Post.model');
@@ -19,7 +18,8 @@ router.post("/crear", isLoggedIn, fileUploader.single('imageUrl'), (req, res, ne
 
   const { title, post } = req.body
   const { _id: owner } = req.session.currentUser
-
+  console.log(req.session)
+  console.log({ title, post })
   Post
     .create({ owner, title, post, imageUrl: req.file.path })
     .then(() => {

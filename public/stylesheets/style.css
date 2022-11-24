@@ -68,7 +68,7 @@ h1 {
   min-height: 100%;
 }
 
-#post {
+#post-image {
   width: 1550px;
   height: 750px;
   z-index: -1;
@@ -133,13 +133,20 @@ h1 {
 }
 
 #user-list-ul {
-  background-color: white;
+  background-color: black;
   list-style-type: none;
+  color: goldenrod;
 }
 
 #user-list-li {
   text-decoration: none;
-  color: black;
+  color: goldenrod;
   padding: 40%;
 
+}
+
+.posts {
+
+  color: goldenrod;
+  margin: 3;
 }
