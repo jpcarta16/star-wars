@@ -38,8 +38,8 @@
             <h6 class="card-title">{{title}}</h6>
             <hr>
             <p class="card-text">{{description}}</p>
-            <form action="/post/eliminar/{{comments._id}}" method="POST" style="display: inline">
-                <input type="submit" value="Eliminar Post" class="btn btn-danger">
+            <form action="/comentarios/eliminar/{{_id}}/{{../post._id}}" method="POST" style="display: inline">
+                <input type="submit" value="Eliminar Comentario" class="btn btn-danger">
             </form>
         </div>
 
